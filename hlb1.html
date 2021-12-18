@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!-- saved from url=(0281)http://newca.jxvtc.edu.cn/campuspass1/start/index.html#/business/epass/exportConfirm/key=e71f8883af1d0a151a75ead4dafb812a8de539ad7d92a72c681fc4469c104cb46c0e074eaa67fda72de757b663aa3a5594d9a70f99fee8ba95c743905bb20f9bdc91067c0a5e13329e61e24dc0c3f4b453463693a4583beda8533d6a42c4340c -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>健康通行证</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/layui.css">
+		<script src="js/layui.js"></script>
+		<!-- <script src="js/lxsj.js"></script> -->
+		<style>
+			.epassbody {
+				background: white;
+				width: 90%;
+				height: 85%;
+				margin-top: 5%;
+				margin-left: auto;
+				margin-right: auto;
+				border-radius: 20px;
+			}
+
+			.epassTop {
+				min-height: 600px;
+			}
+
+			.epassFoot {
+				text-align: center;
+			}
+
+			.epassFoot li {
+				margin: 5% auto;
+			}
+
+			.epassPerson {
+				height: 37%;
+				background: url(images/mybg.png) no-repeat;
+				border-radius: 20px;
+				background-position: center;
+				background-size: 100% 100%;
+			}
+
+			.epassMessage {
+				padding: 5%;
+			}
+
+			.refresh {
+				color: #999999;
+			}
+
+			.tips {
+				text-align: center;
+				padding-top: 10%;
+			}
+
+			.personMessage {
+				overflow: hidden;
+				position: relative;
+				padding-bottom: 10px;
+			}
+
+			.personMessage .headPic {
+				position: absolute;
+				right: 7%;
+				top: 30%;
+				max-width: 25%;
+			}
+
+			.personMessage ul {}
+
+			.personMessage ul li {
+				margin: 5% 0 0 5%;
+				font-size: 14px;
+				font-family: Microsoft YaHei;
+			}
+
+			.personMessage ul li div {
+				background: #ffffff;
+				opacity: 0.9;
+				display: inline-block;
+				border-radius: 5px;
+				line-height: 20px;
+				padding: 5px;
+			}
+
+			.personMessage ul li div span {
+				color: #000000;
+			}
+
+			.personMessage ul .epassUserType {
+				font-size: 30px;
+				color: white;
+				font-weight: bold;
+			}
+
+			.epassUserType div span {
+				font-size: 28px;
+			}
+
+			.dormitory {
+				width: 170px;
+				height: 30px;
+				line-height: 30px;
+				background: rgba(0, 168, 255, 1);
+				opacity: 0.8;
+				border-radius: 5px;
+				display: block;
+			}
+
+			.headPic img {
+				max-width: 90%;
+				margin-top: 30%;
+			}
+
+			.redTip {
+				color: #BC0823;
+				font-weight: 700;
+			}
+
+			.greenTip {
+				color: #21AF61;
+				font-weight: 700;
+			}
+
+			.blueTip {
+				color: #148AF4;
+				font-weight: 700;
+			}
+
+			.yellowTip {
+				color: #FCA001;
+				font-weight: 700;
+			}
+
+			.epassCode {
+				width: 65%;
+			}
+
+			.layui-layout-body {
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body layadmin-themealias="default" class="layui-layout-body">
+		<div id="LAY_app" class="layadmin-tabspage-none">
+		</div>
+		<div class="layadmin-user-login" style="max-width: 500px; margin:0 auto;">
+			<div class="epassbody">
+				<div class="epassTop">
+					<div class="epassPerson">
+						<div class="personMessage">
+							<ul>
+								<li class="epassUserType"><img src="skinimages/mylogo.png" style="width: 50px;"
+										title="">&nbsp;&nbsp;出校证</li>
+								<li>
+									<div>姓名：<span id="xm">胡凌斌</span></div>
+								</li>
+								<li>
+									<div>出校类型：<span id="lxlx"></span></div>
+								</li>
+								<li>
+									<div>出校时间：<span id="li" style="display: none;">2022-11-11
+										</span><span>2021-10-10</span> <span>09:50:40</span></div>
+								</li>
+								<li>
+									<div>回校时间：<span id="li2" style="display: none;">
+											2022-11-11</span><span>2022-06-30</span> <span>18:50:40</span></div>
+								</li>
+							</ul>
+							<!-- <img id="headpic" class="headPic" onerror="this.src=&#39;http://newca.jxvtc.edu.cn/campuspass1/dist/style/images/headpic.png&#39;;this.onerror=null" src="skih/images/c8cacf318f5a40729246d9b2dd084ed2.gif" > -->
+							<img id="headpic" class="headPic" src="skinimages/50tjit.png">
+						</div>
+					</div>
+					<div class="epassMessage">
+						<div class="refresh"> 更新于 <span id="nowtime"><span id="demo"></span></span>
+							<div class="layui-icon layui-anim" id="one">
+								<i class="layui-icon layui-icon-refresh layui-anim" data-anim="layui-anim-rotate"
+									style="color: #148AF4; display: inline-block;" onclick="test()"></i>
+							</div>
+							<div class="tips" id="tips"> <img src="skinimages/export.png" style="width: 65%;">
+								<div style="margin-top: 10%;font-weight: bold;font-size: 2em;" id="tip">离校时间有效，可出校。
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="epassFoot">
+					<li>嘉兴职业技术学院</li>
+					<li></li>
+					<div id="ept"></div>
+					<div id="ipt"></div>
+					<script type="text/javascript">
+						function test() {
+							var demo = $('.layui-icon .layui-anim')
+							var othis = demo,
+								anim = othis.data('anim');
+
+							//停止循环
+							if (othis.hasClass('layui-anim-rotate')) {
+								return othis.removeClass(anim);
+							}
+							othis.removeClass(anim);
+							setTimeout(function() {
+								othis.addClass(anim);
+							});
+
+
+
+							//恢复渐隐
+							if (anim === 'layui-anim-rotate') {
+								setTimeout(function() {
+									othis.removeClass(anim);
+								}, 1300);
+							}
+						}
+						//查找页面的元素
+						var o = document.getElementById('one');
+						var oc = document.getElementById('ipt').innerHTML;
+						//添加点击事件
+						o.onclick = function() {
+							function showTime() {
+								var date = new Date;
+								var year = date.getFullYear();
+								var month = date.getMonth() + 1;
+								var day = date.getDate();
+
+								var hour = date.getHours();
+								var minute = date.getMinutes();
+								var second = date.getSeconds();
+								//为小于10的数字补零
+								if (hour < 10) {
+									hour = '0' + hour;
+								}
+								if (minute < 10) {
+									minute = '0' + minute;
+								}
+								if (second < 10) {
+									second = '0' + second;
+								}
+								var time = year + '-' + month + '-' + day + " " + hour + ':' + minute + ':' + second + '&nbsp;&nbsp;';
+								oc.value = time;
+								document.getElementById("nowtime").innerHTML = time;
+							}
+							showTime();
+							// setInterval(showTime,1000);
+						}
+
+						addOnload(showtime);
+						addOnload(showtime2);
+						addOnload(showtime3);
+
+						function addOnload(newFunction) {
+							var oldOnload = window.onload;
+							if (typeof oldOnload == "function") {
+								window.onload = function() {
+									if (oldOnload) {
+										oldOnload();
+									}
+									newFunction();
+								}
+							} else {
+								window.onload = newFunction;
+							}
+						}
+
+						function showtime() {
+							var t = new Date();
+							var year = t.getFullYear();
+							var month = t.getMonth() + 1;
+							var day = t.getDate();
+							var showtime = year + "-" + month + "-" + day + ' ';
+							document.getElementById("li").innerHTML = showtime;
+						}
+
+						function showtime2() {
+							var t = new Date();
+							var year = t.getFullYear();
+							var month = t.getMonth() + 1;
+							var day = t.getDate();
+							var showtime = year + "-" + month + "-" + day;
+							document.getElementById("li2").innerHTML = showtime + ' ';
+						}
+
+						function showtime3() {
+							var date = new Date;
+							var year = date.getFullYear();
+							var month = date.getMonth() + 1;
+							var day = date.getDate();
+
+							var hour = date.getHours();
+							var minute = date.getMinutes();
+							var second = date.getSeconds();
+							//为小于10的数字补零
+							if (hour < 10) {
+								hour = '0' + hour;
+							}
+							if (minute < 10) {
+								minute = '0' + minute;
+							}
+							if (second < 10) {
+								second = '0' + second;
+							}
+							var time = year + '-' + month + '-' + day + " " + hour + ':' + minute + ':' + second + '&nbsp;&nbsp;';
+							document.getElementById("demo").innerHTML = time;
+						}
+					</script>
+
+	</body>
+</html>
